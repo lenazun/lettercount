@@ -2,26 +2,25 @@ from sys import argv
 
 script, filename = argv
 
-text = open(filename)
-filetext = text.read()
-filetext.lower()
-text.close()
+def main():
 
-lowers = 'abcdefghijklmnopqrstuvwxyz'
-full_text = []
+    text = open(filename)
+    filetext = text.read()
+    filetext.lower()
+    text.close()
 
-for i in range(len(lowers)):
-    full_text.append(0)
+    full_text = [0]*26
 
-for char in filetext:
-    if char in lowers:
-        index = lowers.index(char)
-        full_text[index] += 1
+    for char in filetext:
+        if ord(char) in range(97,123):
+            index = ord(char) - ord('a')
+            full_text[index] += 1
 
-print full_text
+    print full_text
 
 
-
+if __name__ == '__main__':
+    main()
 
 
 
