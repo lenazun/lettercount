@@ -6,14 +6,14 @@ def main():
 
     text = open(filename)
     filetext = text.read()
-    filetext.lower()
+    filetext = filetext.lower()
     text.close()
 
     full_text = [0]*26
-
+    ORD_A = ord('a')
     for char in filetext:
-        if ord(char) in range(97,123):
-            index = ord(char) - ord('a')
+        if 97 <= ord(char) <= 122: 
+            index = ord(char) - ORD_A
             full_text[index] += 1
 
     print full_text
